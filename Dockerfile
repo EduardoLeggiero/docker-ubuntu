@@ -11,7 +11,8 @@ ENV LC_ALL   en_US.UTF-8
 # ensure locale is set for new logins
 RUN echo     'LANG=en_US.UTF-8' >> '/etc/default/locale' \
  && echo 'LANGUAGE=en_US:en'    >> '/etc/default/locale' \
- && echo   'LC_ALL=en_US.UTF-8' >> '/etc/default/locale'
+ && echo   'LC_ALL=en_US.UTF-8' >> '/etc/default/locale' \
+ && locale-gen --purge en_US.UTF-8
 
 # enable backports repository
 RUN sed -i "/^# *deb.*backports/ s/^# *//" /etc/apt/sources.list
