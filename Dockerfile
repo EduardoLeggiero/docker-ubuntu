@@ -8,11 +8,6 @@ ENV LANG     en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL   en_US.UTF-8
 
-# ensure locale is set during init
-RUN echo 'en_US.UTF-8' > '/etc/container_environment/LANG' \
- && echo 'en_US:en'    > '/etc/container_environment/LANGUAGE' \
- && echo 'en_US.UTF-8' > '/etc/container_environment/LC_ALL'
-
 # ensure locale is set for new logins
 RUN echo     'LANG=en_US.UTF-8' >> '/etc/default/locale' \
  && echo 'LANGUAGE=en_US:en'    >> '/etc/default/locale' \
